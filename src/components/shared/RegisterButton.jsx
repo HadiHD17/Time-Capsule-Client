@@ -6,7 +6,7 @@ const RegisterButton = () => {
   return (
     <button 
         onClick={()=>{
-          navigate("/RegisterPage");
+          navigate("/Register");
         }}
         >
         Sign Up

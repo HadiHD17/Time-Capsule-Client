@@ -6,7 +6,7 @@ const LogButton = () => {
   return (
     <div className='Loginbtn'>
         <button onClick={()=>{
-        navigate("/LoginPage");
+        navigate("/Login");
         }}>
             Login
         </button>
