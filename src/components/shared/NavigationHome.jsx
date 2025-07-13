@@ -6,7 +6,7 @@ import RegisterButton from './RegisterButton';
 const NavigationHome = () => {
   return (
     <div className='NavBar'>
-      <div className='Title'>
+      <div className='Heading'>
         <h1>⏰ Time Capsule</h1>
       </div>
       <div className='Actions'>

@@ -28,7 +28,7 @@ const DashboardPage = () => {
             </div>
             <div className='CapsuleCards'>
               {capsules.map((capsule) =>{
-              return <CapsuleCard capsule={capsule}/>})}
+              return <CapsuleCard key={capsule.id} capsule={capsule}/>})}
             </div>
             </div>
     </div>

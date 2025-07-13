@@ -1,0 +1,117 @@
+.CreateForm {
+  background-color: #3185FC;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  max-width: 420px; /* Smaller form width */
+  margin: 2rem auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Top row: Title + Date */
+.form-top {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.Title,
+.RevealDate,
+.Message,
+.Tag,
+.form-mood select,
+.form-attachement input,
+.form-privacy,
+.form-mode {
+  width: 100%; /* Make all form elements align */
+  box-sizing: border-box;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.Title::placeholder,
+.RevealDate::placeholder,
+.Message::placeholder,
+.Tag::placeholder {
+  color: black;
+  opacity: 0.9;
+}
+
+/* Mood label */
+.Mood {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+/* Optional: remove color field styling if not used */
+.Color {
+  margin-top: 0.5rem;
+}
+
+/* Radio buttons */
+.form-privacy label {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* Checkbox */
+.form-mode label {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cancelbtn,
+.submitbtn {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancelbtn {
+  background-color: #ddd;
+  color: black;
+}
+
+.cancelbtn:hover {
+  background-color: #bbb;
+}
+
+.submitbtn {
+  background-color: #FF99C8;
+  color: black;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-top {
+    flex-direction: column;
+  }
+}

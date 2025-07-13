@@ -2,7 +2,7 @@ import React from 'react'
 import "../../styles/Capsule.css"
 
 const CapsuleCard = ({capsule}) => {
-    const {title, message, privacy, country, countdown} = capsule;
+    const {id,title, message, privacy, country, countdown} = capsule;
   return (
     <div className="capsule-card">
         <div className="capsule-top">

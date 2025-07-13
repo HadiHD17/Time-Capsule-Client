@@ -7,7 +7,7 @@ import LogoutButton from './LogoutButton'
 const NavBar = () => {
   return (
     <div className='NavBar'>
-      <div className='Title'>
+      <div className='Heading'>
         <h1>⏰ Time Capsule</h1>
       </div>
       <div className='Actions'>
