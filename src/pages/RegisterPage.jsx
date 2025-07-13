@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import "../styles/Register.css"
 
 const RegisterPage = () => {
     const [fullname, setfullname] = useState("");

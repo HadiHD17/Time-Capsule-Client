@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../styles/Navbar.css"
 import LogButton from './LogButton';
 import RegisterButton from './RegisterButton';
 

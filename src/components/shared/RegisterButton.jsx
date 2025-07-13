@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterButton = () => {
     const navigate = useNavigate();
   return (
+    <div className="Registerbtn">
     <button 
         onClick={()=>{
           navigate("/Register");
@@ -11,6 +12,7 @@ const RegisterButton = () => {
         >
         Sign Up
         </button>
+        </div>
   )
 }
 

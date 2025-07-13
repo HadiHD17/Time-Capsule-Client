@@ -1,4 +1,5 @@
 import React from 'react'
+import "../styles/Home.css"
 import NavigationHome from '../components/shared/NavigationHome'
 import LogButton from '../components/shared/LogButton'
 import RegisterButton from '../components/shared/RegisterButton'
