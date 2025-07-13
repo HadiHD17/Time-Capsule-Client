@@ -1,0 +1,19 @@
+import React from 'react'
+import LogButton from './LogButton';
+import RegisterButton from './RegisterButton';
+
+const NavigationHome = () => {
+  return (
+    <div className='NavBar'>
+      <div className='Title'>
+        <h1>⏰ Time Capsule</h1>
+      </div>
+      <div className='Actions'>
+        <LogButton/>
+        <RegisterButton/>
+      </div>
+    </div>
+  )
+}
+
+export default NavigationHome
