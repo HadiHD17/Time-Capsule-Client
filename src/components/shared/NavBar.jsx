@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/Navbar.css'
 import CreateButton from './CreateButton'
 import PublicWallButton from './PublicWallButton'
 import LogoutButton from './LogoutButton'

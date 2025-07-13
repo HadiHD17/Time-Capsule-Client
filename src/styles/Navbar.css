@@ -51,6 +51,28 @@
   box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
   transform: translateY(-2px);
 }
+/* Register Button (Primary Pink) */
+.NavBar .Publicbtn {
+  display: inline-block;
+}
+
+.NavBar .Publicbtn button {
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.NavBar .Publicbtn button:hover {
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+  transform: translateY(-2px);
+}
 
 /* Login Button (Secondary White) */
 .NavBar .Loginbtn {
@@ -74,7 +96,27 @@
   background: #fce7f3;
   transform: translateY(-2px);
 }
+.NavBar .Logoutbtn {
+  display: inline-block;
+}
 
+.NavBar .Logoutbtn button {
+  background: white;
+  color: black;
+  border: 2px solid #ec4899;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.NavBar .Logoutbtn button:hover {
+  background: #fce7f3;
+  transform: translateY(-2px);
+}
 /* Optional Responsive Fix */
 @media (max-width: 600px) {
   .NavBar {
@@ -91,7 +133,10 @@
   }
 
   .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button {
+  .NavBar .Registerbtn button,
+  .NavBar .Publicbtn button,
+  .NavBar .Logoutbtn button,
+  .NavBar .Createbtn button {
     padding: 0.4rem 1rem;
     font-size: 0.875rem;
   }

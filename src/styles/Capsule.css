@@ -1,0 +1,107 @@
+/* Capsule Card Wrapper */
+.capsule-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  color: #000;
+  width: 100%;
+  max-width: 850px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capsule-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Top Section */
+.capsule-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Title with emoji */
+.capsule-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Privacy Pill */
+.capsule-privacy {
+  background: #f9a8d4;
+  color: #be185d;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Message */
+.capsule-message {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.85;
+  line-height: 1.5;
+  margin: 1rem 0;
+  max-width: 80%;
+  white-space: pre-line;
+}
+
+/* Bottom Section */
+.capsule-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Country and Countdown */
+.capsule-country {
+  color: #000000;
+}
+
+.capsule-countdown {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .capsule-card {
+    padding: 1rem;
+  }
+
+  .capsule-message {
+    max-width: 100%;
+  }
+
+  .capsule-top,
+  .capsule-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .capsule-bottom {
+    align-items: stretch;
+  }
+
+  .capsule-countdown {
+    align-self: flex-end;
+  }
+}
