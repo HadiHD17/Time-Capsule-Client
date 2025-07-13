@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import "../styles/Register.css"
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
     const [fullname, setfullname] = useState("");
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [confirmpassword, setconfirmpassword] = useState("");
+    const navigate = useNavigate();
 
     const Register = (e) => {
         e.preventDefault();
@@ -19,6 +21,8 @@ const RegisterPage = () => {
         //for(let pair of formdata.entries()){
           //  console.log(pair[0] + ": " + pair[1]);
         //}
+        navigate("/Dashboard");
+
     }
   return (
     <div className="RegisterForm">
@@ -52,7 +56,7 @@ const RegisterPage = () => {
             type="text"
             id="confirmpassword"
             className="confirmpassword"
-            placeholder="enter your password"
+            placeholder="confirm your password"
             onChange={(e) => setconfirmpassword(e.target.value)}
             required />
 

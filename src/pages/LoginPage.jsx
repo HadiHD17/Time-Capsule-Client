@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import "../styles/Login.css"
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+    const navigate = useNavigate();
 
     const Login = (e) => {
         e.preventDefault();
@@ -16,6 +18,7 @@ const LoginPage = () => {
         //for(let pair of formdata.entries()){
           //  console.log(pair[0] + ": " + pair[1]);
         //}
+        navigate("/Dashboard");
     }
   return (
     <div className='LoginForm'>
