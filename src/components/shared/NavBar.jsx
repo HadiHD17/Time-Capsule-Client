@@ -1,19 +1,32 @@
 import React from 'react'
 import '../../styles/Navbar.css'
-import CreateButton from './CreateButton'
-import PublicWallButton from './PublicWallButton'
-import LogoutButton from './LogoutButton'
+import Button from './Button'
+import { useNavigate} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({onCreateClick}) => {
+  const navigate = useNavigate();
+  
   return (
     <div className='NavBar'>
       <div className='Heading'>
         <h1>⏰ Time Capsule</h1>
       </div>
       <div className='Actions'>
-        <CreateButton/>
-        <PublicWallButton/>
-        <LogoutButton/>
+        <div className='Createbtn'>
+        <Button text={"+ Add Capsule"} onClickListener={() =>{
+          onCreateClick();
+        }}/>
+        </div>
+        <div className='Publicbtn'>
+        <Button className={"Publicbtn"} text={"Public Wall"} onClickListener={() =>{
+          navigate("/Public")
+        }}/>
+        </div>
+        <div className='Logoutbtn'>
+        <Button className={"Logoutbtn"} text={"Logout"} onClickListener={() =>{
+          navigate("/Home")
+        }}/>
+        </div>
       </div>
     </div>
   )

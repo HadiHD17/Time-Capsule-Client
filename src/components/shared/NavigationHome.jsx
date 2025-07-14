@@ -1,17 +1,26 @@
 import React from 'react'
 import "../../styles/Navbar.css"
-import LogButton from './LogButton';
-import RegisterButton from './RegisterButton';
+import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationHome = () => {
+  const navigate = useNavigate();
   return (
     <div className='NavBar'>
       <div className='Heading'>
         <h1>⏰ Time Capsule</h1>
       </div>
       <div className='Actions'>
-        <LogButton/>
-        <RegisterButton/>
+        <div className='Loginbtn'>
+        <Button text={"Login"} onClickListener={() =>{
+          navigate("/Login")
+        }}/>
+        </div>
+        <div className='Registerbtn'>
+        <Button text={"Register"} onClickListener={() =>{
+          navigate("/Register")
+        }}/>
+        </div>
       </div>
     </div>
   )

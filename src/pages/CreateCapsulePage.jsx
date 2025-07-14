@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
 import "../styles/CreateCapsulePage.css"
 
-const CreateCapsulePage = () => {
-    const navigate = useNavigate();
+const CreateCapsulePage = ({onClose}) => {
     const [Title, setTitle] = useState("");
     const [RevealDate, setRevealDate] = useState("");
     const [Message, setMessage] = useState("");
@@ -15,7 +13,7 @@ const CreateCapsulePage = () => {
 
     const cancel = (e)=>{
         e.preventDefault();
-        navigate("/Dashboard");
+        onClose();
     }
     const submit = (e)=>{
         e.preventDefault();
@@ -33,7 +31,7 @@ const CreateCapsulePage = () => {
           //  console.log(pair[0] + ": " + pair[1]);
         //}
 
-        navigate("/Dashboard");
+        onClose();
     }
 
   return (

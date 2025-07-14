@@ -1,10 +1,11 @@
 import React from 'react'
 import "../styles/Home.css"
 import NavigationHome from '../components/shared/NavigationHome'
-import LogButton from '../components/shared/LogButton'
-import RegisterButton from '../components/shared/RegisterButton'
+import Button from '../components/shared/Button'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
+    const navigate = useNavigate();
   return (
     <div className='Home'>
         <NavigationHome/>
@@ -16,8 +17,16 @@ const HomePage = () => {
                 <p>Create time capsules with messages, photos, and memories to be revealed at the perfect moment</p>
             </div>
             <div className='Buttons'>
-                <RegisterButton/>
-                <LogButton/>
+                <div className='Registerbtn'>
+                    <Button text={"Register"} onClickListener={() =>{
+                        navigate("/Register")
+                    }}/>
+                </div>
+                <div className='Loginbtn'>
+                    <Button text={"Login"} onClickListener={() =>{
+                        navigate("/Login")
+                    }}/>
+                </div>
             </div>
             <div className='FeatureCards'>
                 <div className='MainFeature'>
