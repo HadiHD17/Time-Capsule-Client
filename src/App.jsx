@@ -3,7 +3,7 @@ import MyRoutes from './routes/MyRoutes';
 import HomePage from './pages/HomePage';
 import { useLocation,Routes,Route } from 'react-router-dom';
 
-const discluded = ["/Login", "/Register", "/Dashboard", "/Create"];
+const discluded = ["/Login", "/Register", "/Dashboard", "/Public"];
 
 function App() {
   const location = useLocation();
