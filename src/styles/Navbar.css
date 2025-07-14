@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 .NavBar {
-  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  background: #87B6F8;
   color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   display: flex;
@@ -35,7 +35,7 @@
 }
 
 .NavBar .Registerbtn button {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: #FF99C8;
   color: white;
   border: none;
   padding: 0.5rem 1.2rem;
@@ -57,7 +57,7 @@
 }
 
 .NavBar .Publicbtn button {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: #FF99C8;
   color: white;
   border: none;
   padding: 0.5rem 1.2rem;
@@ -81,7 +81,7 @@
 
 .NavBar .Loginbtn button {
   background: white;
-  color: black;
+  color: #FF99C8;
   border: 2px solid #ec4899;
   padding: 0.5rem 1.2rem;
   border-radius: 0.5rem;
@@ -102,7 +102,7 @@
 
 .NavBar .Logoutbtn button {
   background: white;
-  color: black;
+  color: #FF99C8;
   border: 2px solid #ec4899;
   padding: 0.5rem 1.2rem;
   border-radius: 0.5rem;

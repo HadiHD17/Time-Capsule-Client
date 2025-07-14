@@ -1,5 +1,5 @@
 .CreateForm {
-  background-color: #3185FC;
+  background-color: #87B6F8;
   padding: 1.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -105,7 +105,7 @@ form {
 
 .submitbtn {
   background-color: #FF99C8;
-  color: black;
+  color: white;
 }
 
 

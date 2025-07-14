@@ -43,12 +43,12 @@
 }
 
 .Home .FeatureCards > div {
-  background: #3185FC;
+  background: #87B6F8;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #000000;
+  color: white;
   width: 100%;
   max-width: 100%;
 }
@@ -86,7 +86,7 @@
 }
 
 .Registerbtn button {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: #87B6F8;
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;

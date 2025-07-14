@@ -1,11 +1,11 @@
 /* Capsule Card Wrapper */
 .capsule-card {
-  background: #3185FC;
+  background: #87B6F8;
   border-radius: 1rem;
   padding: 1.5rem 2rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   font-family: 'Inter', sans-serif;
-  color: #000;
+  color: white;
   width: 100%;
   max-width: 850px;
   min-height: 160px;
@@ -34,13 +34,13 @@
   gap: 0.5rem;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #000000;
+  color: #fff;
 }
 
 /* Privacy Pill */
 .capsule-privacy {
   background: #f9a8d4;
-  color: #be185d;
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.35rem 1rem;
@@ -52,7 +52,7 @@
 .capsule-message {
   font-size: 1rem;
   font-weight: 500;
-  color: #000000;
+  color: #fff;
   opacity: 0.85;
   line-height: 1.5;
   margin: 1rem 0;
@@ -72,7 +72,7 @@
 
 /* Country and Countdown */
 .capsule-country {
-  color: #000000;
+  color: #fff;
 }
 
 .capsule-countdown {
