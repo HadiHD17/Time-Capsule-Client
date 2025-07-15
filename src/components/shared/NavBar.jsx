@@ -24,7 +24,7 @@ const NavBar = ({onCreateClick}) => {
         </div>
         <div className='Logoutbtn'>
         <Button className={"Logoutbtn"} text={"Logout"} onClickListener={() =>{
-          navigate("/Home")
+          navigate("/")
         }}/>
         </div>
       </div>

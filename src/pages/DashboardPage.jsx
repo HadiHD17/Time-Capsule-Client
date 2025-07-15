@@ -5,10 +5,11 @@ import CapsuleCard from '../components/landing/CapsuleCard'
 import CreateCapsulePage from './CreateCapsulePage'
 import "../styles/Dashboard.css"
 import "../styles/Modal.css"
+import CapsuleModal from '../components/landing/CapsuleModal';
 
 
 const DashboardPage = () => {
-  
+  const [selectedCapsuleId, setSelectedCapsuleId] = useState(null);
   const [capsules, setcapsules] = useState([{
     id: 1,
     title: "2024 GOAL",
@@ -16,8 +17,18 @@ const DashboardPage = () => {
     privacy: "private",
     country: "Lebanon",
     countdown: "7d5h50m40s"
-  }]);
+  },{
+      id: 2,
+      title: "2024 GOAL",
+      message: "I hope this message is good",
+      privacy: "public",
+      country: "Lebanon",
+      mood: "Sad",
+      timerange: "This Month",
+      countdown: "7d5h50m40s"
+    }]);
   const [showModal, setShowModal] = useState(false);
+  const selectedCapsule = capsules.find(c => c.id === selectedCapsuleId);
   return (
     <div className="Dashboard">
       <div className={`dashboard-blurred-wrapper ${showModal ? 'blurred' : ''}`}>
@@ -34,7 +45,7 @@ const DashboardPage = () => {
           </div>
           <div className='CapsuleCards'>
             {capsules.map((capsule) =>{
-              return <CapsuleCard key={capsule.id} capsule={capsule}/>})}
+              return <CapsuleCard key={capsule.id} capsule={capsule} onClick={() => setSelectedCapsuleId(capsule.id)}/>})}
           </div>
         </div>
       </div>
@@ -46,8 +57,10 @@ const DashboardPage = () => {
             <button onClick={() => setShowModal(false)} className="close-btn">✖</button>
           </div>
         </div>
-        
       )}
+
+      <CapsuleModal capsule={selectedCapsule} onClose={() => setSelectedCapsuleId(null)} />
+
     </div>
   )
 }

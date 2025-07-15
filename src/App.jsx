@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       {discluded.every((route) => route !== location.pathname) && 
       <Routes>
-        <Route path="/Home" element={<HomePage/>}/> 
+        <Route path="/" element={<HomePage/>}/> 
       </Routes>}
       <MyRoutes/>
     </div>

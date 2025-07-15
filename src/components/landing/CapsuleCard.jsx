@@ -1,10 +1,10 @@
 import React from 'react'
 import "../../styles/Capsule.css"
 
-const CapsuleCard = ({capsule}) => {
+const CapsuleCard = ({capsule, onClick}) => {
     const {id,title, message, privacy, country, countdown} = capsule;
   return (
-    <div className="capsule-card">
+    <div className="capsule-card" onClick={onClick}>
         <div className="capsule-top">
         <h4 className='capsule-title'>{title}</h4>
         <span className='capsule-privacy'>{privacy}</span>

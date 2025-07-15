@@ -1,0 +1,100 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(40, 40, 40, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #9db8f1;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  width: 90%;
+  max-width: 600px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Title */
+.modal-content h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+}
+
+/* Emoji image (centered) */
+.modal-content img.emoji-icon {
+  width: 50px;
+  margin: 1rem auto;
+  display: block;
+}
+
+/* Message */
+.modal-content p.message {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #f5f5f5;
+}
+
+/* Location and Tags section */
+.modal-info-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #eeeeee;
+}
+
+.modal-info-grid div {
+  flex: 1 1 45%;
+  margin: 0.5rem 0;
+  text-align: left;
+}
+
+/* Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffecec;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-buttons button:hover {
+  background-color: #ffdcdc;
+}
+
+/* Close (X) */
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

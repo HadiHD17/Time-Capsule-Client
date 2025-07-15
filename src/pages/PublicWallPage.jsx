@@ -3,8 +3,10 @@ import NavBar from '../components/shared/NavBar'
 import { Link } from 'react-router-dom'
 import CapsuleCard from '../components/landing/CapsuleCard'
 import "../styles/PublicWall.css"
+import CapsuleModal from '../components/landing/CapsuleModal';
 
 const PublicWallPage = () => {
+    const [selectedCapsuleId, setSelectedCapsuleId] = useState(null);
     const [country, setCountry] = useState('');
     const [mood, setMood] = useState('');
     const [timerange, setTimeRange] = useState('');
@@ -28,7 +30,7 @@ const PublicWallPage = () => {
         timerange: "This Month",
         countdown: "7d5h50m40s"
       }]);
-    
+    const selectedCapsule = capsules.find(c => c.id === selectedCapsuleId);
 
   return (
     <div className='Public-Wall'>
@@ -82,9 +84,11 @@ const PublicWallPage = () => {
                 );
                 })
                 .map((capsule) => (
-                <CapsuleCard key={capsule.id} capsule={capsule} />
+                <CapsuleCard key={capsule.id} capsule={capsule} onClick={() => setSelectedCapsuleId(capsule.id)} />
                 ))}
         </div>
+
+        <CapsuleModal capsule={selectedCapsule} onClose={() => setSelectedCapsuleId(null)} />
 
     </div>
   )
