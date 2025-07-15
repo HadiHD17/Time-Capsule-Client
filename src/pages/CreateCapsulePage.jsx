@@ -30,13 +30,14 @@ const CreateCapsulePage = ({onClose}) => {
         //for(let pair of formData.entries()){
           //  console.log(pair[0] + ": " + pair[1]);
         //}
-
-        onClose();
+        if(formData){
+            onClose();
+        }
     }
 
   return (
     <div className='CreateForm'>
-        <form>
+        <form onSubmit={submit}>
             <div className='form-top'>
                 <input type="text" id="Title" className='Title' placeholder='enter your title' onChange={(e) => setTitle(e.target.value)} required/>
                 <input type="date" id="RevealDate" className='RevealDate' onChange={(e) => setRevealDate(e.target.value)} required/>
@@ -87,7 +88,7 @@ const CreateCapsulePage = ({onClose}) => {
             </div>
             <div className='form-buttons'>
                 <button className='cancelbtn' onClick={cancel}>Cancel</button>
-                <button className='submitbtn' onClick={submit}>Create Capsule</button>
+                <button className='submitbtn'>Create Capsule</button>
             </div>
         </form>
     </div>

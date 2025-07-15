@@ -18,14 +18,16 @@ const LoginPage = () => {
         //for(let pair of formdata.entries()){
           //  console.log(pair[0] + ": " + pair[1]);
         //}
-        navigate("/Dashboard");
+       if(formdata){ 
+          navigate("/Dashboard");
+        }
     }
   return (
     <div className='LoginForm'>
         <h1>Welcome Back!</h1>
-        <form>
+        <form onSubmit={Login}>
             <input 
-            type="text"
+            type="email"
             id="email"
             className="email"
             placeholder="enter your email"
@@ -33,14 +35,14 @@ const LoginPage = () => {
             required />
 
             <input 
-            type="text"
+            type="password"
             id="password"
             className="password"
             placeholder="enter your password"
             onChange={(e) => setpassword(e.target.value)}
             required />
 
-            <button type="submit" className="loginbtn" onClick={Login}>Login</button>
+            <button type="submit" className="loginbtn" >Login</button>
 
         </form>
     </div>

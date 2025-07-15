@@ -21,13 +21,14 @@ const RegisterPage = () => {
         //for(let pair of formdata.entries()){
           //  console.log(pair[0] + ": " + pair[1]);
         //}
-        navigate("/Dashboard");
-
+        if(formdata){
+          navigate("/Dashboard");
+        }
     }
   return (
     <div className="RegisterForm">
         <h1>CREATE ACCOUNT</h1>
-        <form>
+        <form onSubmit={Register}>
             <input 
             type="text"
             id="fullname"
@@ -37,7 +38,7 @@ const RegisterPage = () => {
             required />
 
             <input 
-            type="text"
+            type="email"
             id="email"
             className="email"
             placeholder="enter your email"
@@ -45,7 +46,7 @@ const RegisterPage = () => {
             required />
 
             <input 
-            type="text"
+            type="password"
             id="password"
             className="password"
             placeholder="enter your password"
@@ -53,14 +54,14 @@ const RegisterPage = () => {
             required />
 
             <input 
-            type="text"
+            type="password"
             id="confirmpassword"
             className="confirmpassword"
             placeholder="confirm your password"
             onChange={(e) => setconfirmpassword(e.target.value)}
             required />
 
-            <button type="submit" className="registerbtn" onClick={Register}>Sign Up</button>
+            <button type="submit" className="registerbtn" >Sign Up</button>
 
         </form>
     </div>
