@@ -35,12 +35,14 @@ const PublicWallPage = () => {
   return (
     <div className='Public-Wall'>
         <NavBar/>
+        <div className="wall-header">
         <div className='back'>
             <h4>
                 <Link to ="/Dashboard">← Back To Capsules</Link>
             </h4>
         </div>
         <h1>Public Time Capsule Wall</h1>
+        </div>
         <div className='Filters'>
             <select id="Country" className='Country-filter' name='Country' onChange={(e) => setCountry(e.target.value)}>
                 <option value="">All Countries</option>
