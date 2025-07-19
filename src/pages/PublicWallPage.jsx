@@ -1,35 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../components/shared/NavBar";
 import { Link } from "react-router-dom";
 import CapsuleCard from "../components/landing/CapsuleCard";
 import "../styles/PublicWall.css";
 import CapsuleModal from "../components/landing/CapsuleModal";
+import axios from "axios";
 
 const PublicWallPage = () => {
   const [selectedCapsuleId, setSelectedCapsuleId] = useState(null);
   const [country, setCountry] = useState("");
   const [mood, setMood] = useState("");
-  const [capsules, setcapsules] = useState([
-    {
-      id: 1,
-      title: "2024 GOAL",
-      message: "I hope this message is good",
-      privacy: "public",
-      country: "Lebanon",
-      mood: "Happy",
-      countdown: "7d5h50m40s",
-    },
-    {
-      id: 2,
-      title: "2024 GOAL",
-      message: "I hope this message is good",
-      privacy: "public",
-      country: "Lebanon",
-      mood: "Sad",
-      countdown: "7d5h50m40s",
-    },
-  ]);
-  const selectedCapsule = capsules.find((c) => c.id === selectedCapsuleId);
+  const [capsules, setcapsules] = useState([]);
+
+  const loadPublicCapsules = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get(
+        "http://127.0.0.1:8000/api/v0.1/capsules/public",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setcapsules(res.data);
+    } catch (error) {
+      console.error("Failed to load capsules", error);
+    }
+  };
+
+  useEffect(() => {
+    loadPublicCapsules();
+  }, []);
+
+  console.log("Capsules:", capsules);
+
+  const capsuleList = capsules?.payload || [];
+  const selectedCapsule = capsuleList.find((c) => c.id === selectedCapsuleId);
 
   return (
     <div className="Public-Wall">
@@ -74,10 +81,9 @@ const PublicWallPage = () => {
         </select>
       </div>
       <div className="PublicCapsules">
-        {capsules
+        {capsuleList
           .filter((capsule) => {
             return (
-              capsule.privacy === "public" &&
               (mood === "" || capsule.mood === mood) &&
               (country === "" || capsule.country === country)
             );

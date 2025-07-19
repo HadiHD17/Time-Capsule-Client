@@ -32,7 +32,6 @@ const DashboardPage = () => {
       console.error("Failed to load capsules", error);
     }
   };
-  console.log("Capsules:", capsules);
   const capsuleList = capsules?.payload || [];
   const selectedCapsule = capsuleList.find((c) => c.id === selectedCapsuleId);
   return (

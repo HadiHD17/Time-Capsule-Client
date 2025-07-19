@@ -16,8 +16,22 @@ const CreateCapsulePage = ({ onClose }) => {
     e.preventDefault();
     onClose();
   };
+
+  const getUserIP = async () => {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error("Failed to get IP", error);
+      return null;
+    }
+  };
+
   const submit = async (e) => {
     e.preventDefault();
+
+    const ip = await getUserIP();
     const formData = new FormData();
     formData.append("title", Title);
     formData.append("reveal_date", RevealDate);
@@ -26,7 +40,8 @@ const CreateCapsulePage = ({ onClose }) => {
     formData.append("tag", Tag);
     formData.append("privacy", Privacy);
     formData.append("is_surprise", Mode ? 1 : 0);
-    formData.append("attachment_file", Attachement); // correct key for file upload
+    formData.append("attachment_file", Attachement);
+    formData.append("user_ip", ip);
 
     try {
       const token = localStorage.getItem("token");
