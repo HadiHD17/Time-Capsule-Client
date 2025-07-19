@@ -8,18 +8,18 @@ const RegisterPage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
-  const [loginError, setLoginError] = useState("");
+  const [RegisterError, setRegisterError] = useState("");
   const navigate = useNavigate();
 
   const Register = async (e) => {
     e.preventDefault();
-    setLoginError("");
+    setRegisterError("");
 
     const formdata = new FormData();
     formdata.append("fullname", fullname);
     formdata.append("email", email);
     formdata.append("password", password);
-    formdata.append("confirmpassword", confirmpassword);
+    formdata.append("password_confirmation", confirmpassword);
 
     try {
       const res = await axios.post(
@@ -30,10 +30,10 @@ const RegisterPage = () => {
         localStorage.setItem("token", res.data.payload.token);
         navigate("/Dashboard");
       }
-      setLoginError("Invalid email or password.");
+      setRegisterError("Invalid email or password.");
     } catch (error) {
-      setLoginError("Server error. Please try again later.");
-      console.error("Login error:", error);
+      setRegisterError("Server error. Please try again later.");
+      console.error("Sign Up error:", error);
     }
   };
   return (
@@ -79,6 +79,7 @@ const RegisterPage = () => {
         <button type="submit" className="registerbtn">
           Sign Up
         </button>
+        {RegisterError && <p className="error-text">{RegisterError}</p>}
       </form>
     </div>
   );
