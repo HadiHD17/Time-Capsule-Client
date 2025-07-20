@@ -1,9 +1,11 @@
-// src/components/modals/CapsuleModal.jsx
-import React from 'react';
-import JSZip from 'jszip';
-import '../../styles/CapsuleModal.css'; // Use your styled modal CSS
+import React from "react";
+import JSZip from "jszip";
+import "../../styles/CapsuleModal.css";
+import axios from "axios";
+import { renderAttachment } from "./renderattachment";
 
 const CapsuleModal = ({ capsule, onClose }) => {
+  console.log("Capsule in modal:", capsule);
   if (!capsule) return null;
 
   const handleExportZip = async () => {
@@ -13,11 +15,24 @@ Title: ${capsule.title}
 Message: ${capsule.message}
 Privacy: ${capsule.privacy}
 Country: ${capsule.country}
-Countdown: ${capsule.countdown}
-Tags: goals, fitness, music
-Revealed: No
+Attachment: ${capsule.attachment_file}
+Tags: ${capsule.tag}
+Revealed: ${capsule.is_revealed}
     `;
     zip.file("capsule.txt", capsuleContent.trim());
+
+    if (capsule.attachment_file) {
+      try {
+        const res = await axios.get(
+          `http://localhost:8000/api/v0.1/attachments/${capsule.attachment_id}`,
+          { responseType: "blob" }
+        );
+        const ext = capsule.attachment_file.split(".").pop();
+        zip.file(`attachment.${ext}`, res.data);
+      } catch (error) {
+        console.error("Error fetching attachment:", error);
+      }
+    }
 
     const content = await zip.generateAsync({ type: "blob" });
     const link = document.createElement("a");
@@ -29,17 +44,38 @@ Revealed: No
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button onClick={onClose} className="close-btn">✖</button>
+        <button onClick={onClose} className="close-btn">
+          ✖
+        </button>
 
         <h2>{capsule.title}</h2>
-        <img src="/icons/target.png" alt="Target" className="emoji-icon" />
         <p className="message">{capsule.message}</p>
 
         <div className="modal-info-grid">
-          <div><strong>Location:</strong> {capsule.country}</div>
-          <div><strong>Privacy:</strong> {capsule.privacy}</div>
-          <div><strong>Tags:</strong> goals, fitness, music</div>
-          <div><strong>Revealed:</strong> No</div>
+          <div>
+            <strong>Location:</strong> {capsule.country}
+          </div>
+          <div>
+            <strong>Privacy:</strong> {capsule.privacy}
+          </div>
+          <div>
+            <strong>Tags:</strong> {capsule.tag}
+          </div>
+          <div>
+            <strong>Revealed:</strong> {capsule.is_revealed ? "Yes" : "No"}
+          </div>
+        </div>
+
+        <div className="modal-attachment">
+          {capsule.attachments && capsule.attachments.length > 0 ? (
+            capsule.attachments.map((att) => (
+              <div key={att.id} style={{ marginBottom: "1rem" }}>
+                {renderAttachment({ file_url: att.file_url })}
+              </div>
+            ))
+          ) : (
+            <p>No attachments</p>
+          )}
         </div>
 
         <div className="modal-buttons">

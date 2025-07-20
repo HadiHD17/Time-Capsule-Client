@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/CreateCapsulePage.css";
 import axios from "axios";
+import { encodeFileToBase64 } from "../components/landing/encoder";
 
 const CreateCapsulePage = ({ onClose }) => {
   const [Title, setTitle] = useState("");
@@ -8,7 +9,8 @@ const CreateCapsulePage = ({ onClose }) => {
   const [Message, setMessage] = useState("");
   const [Mood, setMood] = useState("");
   const [Tag, setTag] = useState("");
-  const [Attachement, setAttachement] = useState(null);
+  const [image, setImage] = useState("");
+  const [audio, setAudio] = useState("");
   const [Privacy, setPrivacy] = useState("private");
   const [Mode, setMode] = useState(false);
 
@@ -19,9 +21,8 @@ const CreateCapsulePage = ({ onClose }) => {
 
   const getUserIP = async () => {
     try {
-      const response = await fetch("https://api.ipify.org?format=json");
-      const data = await response.json();
-      return data.ip;
+      const res = await axios.get("https://api.ipify.org?format=json");
+      return res.data.ip;
     } catch (error) {
       console.error("Failed to get IP", error);
       return null;
@@ -32,22 +33,36 @@ const CreateCapsulePage = ({ onClose }) => {
     e.preventDefault();
 
     const ip = await getUserIP();
-    const formData = new FormData();
-    formData.append("title", Title);
-    formData.append("reveal_date", RevealDate);
-    formData.append("message", Message);
-    formData.append("mood", Mood);
-    formData.append("tag", Tag);
-    formData.append("privacy", Privacy);
-    formData.append("is_surprise", Mode ? 1 : 0);
-    formData.append("attachment_file", Attachement);
-    formData.append("user_ip", ip);
+    const formdata = new FormData();
+
+    formdata.append("title", Title);
+    formdata.append("message", Message);
+    formdata.append("reveal_date", RevealDate);
+    formdata.append("privacy", Privacy);
+    formdata.append("tag", Tag);
+    formdata.append("mood", Mood);
+    formdata.append("is_surprise", Mode ? 1 : 0);
+    formdata.append("user_ip", ip);
+
+    const attachments = [];
+    if (image) {
+      const base64image = await encodeFileToBase64(image);
+      attachments.push(base64image);
+    }
+    if (audio) {
+      const base64image = await encodeFileToBase64(audio);
+      attachments.push(base64image);
+    }
+
+    attachments.forEach((base64) => {
+      formdata.append("attachments[]", base64);
+    });
 
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
         "http://127.0.0.1:8000/api/v0.1/add_capsule",
-        formData,
+        formdata,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -123,11 +138,20 @@ const CreateCapsulePage = ({ onClose }) => {
         <div className="form-attachement">
           <label className="Attachement">Attach Media</label>
           <input
-            type="file"
-            id="Attachement"
-            className="Attachement"
-            accept="image/*,audio/*,video/*,.txt"
-            onChange={(e) => setAttachement(e.target.files[0])}
+            label={"Image"}
+            type={"file"}
+            name={"image"}
+            accept="image/*"
+            required
+            onChange={(e) => setImage(e.target.files[0])}
+          />
+
+          <input
+            label={"Audio"}
+            type={"file"}
+            name={"audio"}
+            accept="audio/*"
+            onChange={(e) => setAudio(e.target.files[0])}
           />
         </div>
         <div className="form-privacy">

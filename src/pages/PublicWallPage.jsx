@@ -7,7 +7,7 @@ import CapsuleModal from "../components/landing/CapsuleModal";
 import axios from "axios";
 
 const PublicWallPage = () => {
-  const [selectedCapsuleId, setSelectedCapsuleId] = useState(null);
+  const [selectedCapsule, setSelectedCapsule] = useState(null);
   const [country, setCountry] = useState("");
   const [mood, setMood] = useState("");
   const [capsules, setcapsules] = useState([]);
@@ -29,6 +29,25 @@ const PublicWallPage = () => {
     }
   };
 
+  const ViewCapsule = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get(
+        `http://127.0.0.1:8000/api/v0.1/capsule/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setSelectedCapsule(res.data.payload);
+      // set full capsule object including attachments
+    } catch (error) {
+      console.error("Failed to load capsule details", error);
+    }
+  };
+
   useEffect(() => {
     loadPublicCapsules();
   }, []);
@@ -36,7 +55,6 @@ const PublicWallPage = () => {
   console.log("Capsules:", capsules);
 
   const capsuleList = capsules?.payload || [];
-  const selectedCapsule = capsuleList.find((c) => c.id === selectedCapsuleId);
 
   return (
     <div className="Public-Wall">
@@ -71,13 +89,13 @@ const PublicWallPage = () => {
           name="Mood"
           onChange={(e) => setMood(e.target.value)}>
           <option value="">All Moods</option>
-          <option value="Happy">😊 Happy</option>
-          <option value="Sad">😢 Sad</option>
-          <option value="Angry">😠 Angry</option>
-          <option value="Excited">🤩 Excited</option>
-          <option value="Relaxed">😌 Relaxed</option>
-          <option value="Bored">😐 Bored</option>
-          <option value="Anxious">😰 Anxious</option>
+          <option value="happy">😊 Happy</option>
+          <option value="sad">😢 Sad</option>
+          <option value="angry">😠 Angry</option>
+          <option value="excited">🤩 Excited</option>
+          <option value="relaxed">😌 Relaxed</option>
+          <option value="bored">😐 Bored</option>
+          <option value="anxious">😰 Anxious</option>
         </select>
       </div>
       <div className="PublicCapsules">
@@ -92,14 +110,14 @@ const PublicWallPage = () => {
             <CapsuleCard
               key={capsule.id}
               capsule={capsule}
-              onClick={() => setSelectedCapsuleId(capsule.id)}
+              onClick={() => ViewCapsule(capsule.id)}
             />
           ))}
       </div>
 
       <CapsuleModal
         capsule={selectedCapsule}
-        onClose={() => setSelectedCapsuleId(null)}
+        onClose={() => setSelectedCapsule(null)}
       />
     </div>
   );

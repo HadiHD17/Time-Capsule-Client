@@ -9,12 +9,32 @@ import CapsuleModal from "../components/landing/CapsuleModal";
 import axios from "axios";
 
 const DashboardPage = () => {
-  const [selectedCapsuleId, setSelectedCapsuleId] = useState(null);
   const [capsules, setcapsules] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectedCapsule, setSelectedCapsule] = useState(null);
+
   useEffect(() => {
     loadCapsules();
   }, []);
+
+  const ViewCapsule = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get(
+        `http://127.0.0.1:8000/api/v0.1/capsule/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setSelectedCapsule(res.data.payload);
+      // set full capsule object including attachments
+    } catch (error) {
+      console.error("Failed to load capsule details", error);
+    }
+  };
 
   const loadCapsules = async () => {
     try {
@@ -33,7 +53,6 @@ const DashboardPage = () => {
     }
   };
   const capsuleList = capsules?.payload || [];
-  const selectedCapsule = capsuleList.find((c) => c.id === selectedCapsuleId);
   return (
     <div className="Dashboard">
       <div
@@ -61,7 +80,7 @@ const DashboardPage = () => {
                 <CapsuleCard
                   key={capsule.id}
                   capsule={capsule}
-                  onClick={() => setSelectedCapsuleId(capsule.id)}
+                  onClick={() => ViewCapsule(capsule.id)}
                 />
               );
             })}
@@ -87,7 +106,7 @@ const DashboardPage = () => {
 
       <CapsuleModal
         capsule={selectedCapsule}
-        onClose={() => setSelectedCapsuleId(null)}
+        onClose={() => setSelectedCapsule(null)}
       />
     </div>
   );
