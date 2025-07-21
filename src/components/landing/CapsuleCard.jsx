@@ -31,15 +31,29 @@ const CapsuleCard = ({ capsule, onClick }) => {
 
   return (
     <div className="capsule-card" onClick={onClick}>
-      <div className="capsule-top">
-        <h4 className="capsule-title">{title}</h4>
-        <span className="capsule-privacy">{privacy}</span>
-      </div>
-      <p className="capsule-message">{message}</p>
-      <div className="capsule-bottom">
-        <span className="capsule-country">{country}</span>
-        <span className="capsule-countdown">{countdown}</span>
-      </div>
+      {capsule.is_surprise && !capsule.is_activated ? (
+        // If it's a surprise and not yet activated, show a hidden message
+        <div className="capsule-surprise-hidden">
+          🎁 <strong>Surprise Capsule</strong>
+          <p>
+            Will be revealed on{" "}
+            {new Date(capsule.reveal_date).toLocaleDateString()}
+          </p>
+        </div>
+      ) : (
+        // Else, show actual capsule content
+        <>
+          <div className="capsule-top">
+            <h4 className="capsule-title">{capsule.title}</h4>
+            <span className="capsule-privacy">{capsule.privacy}</span>
+          </div>
+          <p className="capsule-message">{capsule.message}</p>
+          <div className="capsule-bottom">
+            <span className="capsule-country">{capsule.country}</span>
+            <span className="capsule-countdown">{countdown}</span>
+          </div>
+        </>
+      )}
     </div>
   );
 };
