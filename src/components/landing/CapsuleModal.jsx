@@ -62,7 +62,7 @@ Revealed: ${capsule.is_revealed}
             <strong>Tags:</strong> {capsule.tag}
           </div>
           <div>
-            <strong>Revealed:</strong> {capsule.is_revealed ? "Yes" : "No"}
+            <strong>Revealed:</strong> {capsule.is_activated ? "Yes" : "No"}
           </div>
         </div>
 

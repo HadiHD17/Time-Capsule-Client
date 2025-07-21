@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
@@ -57,6 +57,9 @@ const LoginPage = () => {
           Login
         </button>
         {loginError && <p className="error-text">{loginError}</p>}
+        <p>
+          Don't Have An Account? <Link to="/Register">Sign Up</Link>
+        </p>
       </form>
     </div>
   );

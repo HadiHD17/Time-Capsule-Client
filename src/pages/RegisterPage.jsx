@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RegisterPage = () => {
@@ -80,6 +80,9 @@ const RegisterPage = () => {
           Sign Up
         </button>
         {RegisterError && <p className="error-text">{RegisterError}</p>}
+        <p>
+          Already Have An Account? <Link to="/Login">Login</Link>
+        </p>
       </form>
     </div>
   );
