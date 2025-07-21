@@ -5,7 +5,6 @@ import axios from "axios";
 import { renderAttachment } from "./renderattachment";
 
 const CapsuleModal = ({ capsule, onClose }) => {
-  console.log("Capsule in modal:", capsule);
   if (!capsule) return null;
 
   const handleExportZip = async () => {

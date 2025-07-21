@@ -62,7 +62,7 @@ const PublicWallPage = () => {
       <div className="wall-header">
         <div className="back">
           <h4>
-            <Link to="/Dashboard">← Back To Capsules</Link>
+            <Link to="/Dashboard"> Back To Capsules</Link>
           </h4>
         </div>
         <h1>Public Time Capsule Wall</h1>

@@ -1,117 +1,403 @@
+/* Create Form - Optimized */
 .CreateForm {
-  background-color: #87B6F8;
-  padding: 1.5rem;
+  background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
+  padding: clamp(1.25rem, 4vw, 2rem);
   border-radius: 1.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 95%;
-  max-width: 420px; /* Smaller form width */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: min(420px, 95vw);
   margin: 2rem auto;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
+.CreateForm::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+/* Form Structure */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.25rem;
 }
 
-/* Top row: Title + Date */
+/* Top Row Layout - Enhanced */
 .form-top {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
 }
 
+/* Form Elements - Unified Styling */
 .Title,
 .RevealDate,
 .Message,
 .Tag,
 .form-mood select,
-.form-attachement input,
+.form-attachement input[type="file"],
 .form-privacy,
 .form-mode {
-  width: 100%; /* Make all form elements align */
+  width: 100%;
   box-sizing: border-box;
-  padding: 0.75rem;
+  padding: 0.875rem 1rem;
   font-size: 1rem;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  backdrop-filter: blur(10px);
 }
 
+.Title:focus,
+.RevealDate:focus,
+.Message:focus,
+.Tag:focus,
+.form-mood select:focus,
+.form-attachement input[type="file"]:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Placeholder Styling */
 .Title::placeholder,
 .RevealDate::placeholder,
 .Message::placeholder,
 .Tag::placeholder {
-  color: black;
-  opacity: 0.9;
+  color: #666;
+  opacity: 0.8;
 }
 
-/* Mood label */
-.Mood {
-  font-weight: bold;
-  margin-bottom: 0.3rem;
-  display: block;
+/* Message Input */
+.form-message {
+  width: 100%;
 }
 
-/* Optional: remove color field styling if not used */
-.Color {
-  margin-top: 0.5rem;
+.Message {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
 }
 
-/* Radio buttons */
-.form-privacy label {
-  display: block;
-  margin-top: 0.4rem;
+/* Date Input Enhancement */
+.RevealDate {
+  cursor: pointer;
+  position: relative;
+}
+
+.RevealDate::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
+/* Mood Section */
+.form-mood {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-mood label.Mood {
+  font-weight: 600;
+  color: white;
   font-size: 0.95rem;
+  margin: 0;
 }
 
-/* Checkbox */
+.form-mood select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Tag Section */
+.form-tag {
+  width: 100%;
+}
+
+/* Attachment Section */
+.form-attachement {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-attachement label.Attachement {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-attachement input[type="file"] {
+  cursor: pointer;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.form-attachement input[type="file"]::-webkit-file-upload-button {
+  background: #ff99c8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.form-attachement input[type="file"]::-webkit-file-upload-button:hover {
+  background: #ff85c0;
+}
+
+/* Privacy Section */
+.form-privacy {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-privacy label.Privacy {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-privacy label:not(.Privacy) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.form-privacy label:not(.Privacy):hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-privacy input[type="radio"] {
+  width: auto;
+  margin: 0;
+  accent-color: #ff99c8;
+  transform: scale(1.1);
+}
+
+/* Mode Section */
+.form-mode {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
 .form-mode label {
   font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-/* Buttons */
+.form-mode label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-mode input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: #ff99c8;
+  transform: scale(1.1);
+}
+
+/* Buttons - Enhanced */
 .form-buttons {
   display: flex;
-  justify-content: space-between;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .cancelbtn,
 .submitbtn {
   flex: 1;
-  padding: 0.75rem;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
-  font-weight: bold;
-  border-radius: 10px;
+  font-weight: 600;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
 }
 
 .cancelbtn {
-  background-color: #ddd;
-  color: black;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  backdrop-filter: blur(10px);
 }
 
 .cancelbtn:hover {
-  background-color: #bbb;
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .submitbtn {
-  background-color: #FF99C8;
+  background: linear-gradient(135deg, #ff99c8 0%, #ff85c0 100%);
   color: white;
+  box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
 }
 
+.submitbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 153, 200, 0.4);
+}
 
-/* Responsive */
-@media (max-width: 600px) {
+.submitbtn:active,
+.cancelbtn:active {
+  transform: translateY(0);
+}
+
+/* Loading State */
+.submitbtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .CreateForm {
+    margin: 1rem auto;
+    border-radius: 1.25rem;
+  }
+
   .form-top {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .Title,
+  .RevealDate,
+  .Message,
+  .Tag,
+  .form-mood select,
+  .form-attachement input[type="file"] {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .Message {
+    min-height: 80px;
+  }
+
+  .form-buttons {
     flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cancelbtn,
+  .submitbtn {
+    padding: 0.875rem;
+  }
+
+  .form-attachement {
+    padding: 0.75rem;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .CreateForm {
+    padding: 1.25rem;
+  }
+
+  form {
+    gap: 1rem;
+  }
+
+  .form-privacy,
+  .form-mode,
+  .form-attachement {
+    padding: 0.75rem;
+  }
+
+  .form-privacy label:not(.Privacy),
+  .form-mode label {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .CreateForm {
+    max-width: 480px;
+    padding: 2.5rem;
+  }
+}
+
+/* Focus Accessibility */
+.cancelbtn:focus,
+.submitbtn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .CreateForm,
+  .Title,
+  .RevealDate,
+  .Message,
+  .Tag,
+  .form-mood select,
+  .form-attachement input[type="file"],
+  .cancelbtn,
+  .submitbtn {
+    transition: none;
   }
 }

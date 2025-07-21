@@ -1,39 +1,74 @@
-/* Capsule Card Wrapper */
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Optimized Capsule Card */
 .capsule-card {
-  background: #87b6f8;
+  background: linear-gradient(135deg, #87b6f8 0%, #6fa8f5 100%);
   border-radius: 1rem;
-  padding: 1.5rem 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   font-family: "Inter", sans-serif;
   color: white;
   width: 100%;
-  max-width: 850px;
+  max-width: min(850px, 90vw);
   min-height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
-.capsule-surprise-hidden {
-  text-align: center;
-  font-style: italic;
-  color: #555;
-  background-color: #f2f2f2;
-  border: 2px dashed #aaa;
-  padding: 1rem;
-  border-radius: 12px;
+
+.capsule-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
 }
 
 .capsule-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Top Section */
+/* Hidden state for surprise capsules */
+.capsule-surprise-hidden {
+  background: #f8fafc;
+  color: #64748b;
+  border: 2px dashed #cbd5e1;
+  text-align: center;
+  font-style: italic;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.capsule-surprise-hidden:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+/* Top Section - Responsive Flex */
 .capsule-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* Title with emoji */
@@ -41,76 +76,128 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.25rem;
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
   font-weight: 600;
   color: #fff;
+  flex: 1;
+  min-width: 0;
 }
 
-/* Privacy Pill */
+/* Privacy Pill - Improved */
 .capsule-privacy {
-  background: #f9a8d4;
+  background: rgba(249, 168, 212, 0.9);
+  backdrop-filter: blur(10px);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
   white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Message */
+/* Message - Better Typography */
 .capsule-message {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 500;
-  color: #fff;
-  opacity: 0.85;
-  line-height: 1.5;
-  margin: 1rem 0;
-  max-width: 80%;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
   white-space: pre-line;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
-/* Bottom Section */
+/* Bottom Section - Improved Layout */
 .capsule-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.875rem;
   font-weight: 600;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.9);
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* Country and Countdown */
 .capsule-country {
-  color: #fff;
+  flex: 1;
+  min-width: 0;
 }
 
 .capsule-countdown {
   font-family: "Courier New", monospace;
   font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(5px);
+  flex-shrink: 0;
 }
 
-/* Responsive Tweaks */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
   .capsule-card {
-    padding: 1rem;
+    min-height: 140px;
+  }
+
+  .capsule-top {
+    align-items: center;
+  }
+
+  .capsule-title {
+    font-size: 1.1rem;
+  }
+
+  .capsule-privacy {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
   }
 
   .capsule-message {
-    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
-  .capsule-top,
   .capsule-bottom {
+    font-size: 0.8rem;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .capsule-bottom {
     align-items: stretch;
+    gap: 0.75rem;
   }
 
   .capsule-countdown {
     align-self: flex-end;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .capsule-card {
+    border-radius: 0.75rem;
+    min-height: 120px;
+  }
+
+  .capsule-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .capsule-privacy {
+    align-self: flex-start;
+    width: fit-content;
+  }
+
+  .capsule-bottom {
+    gap: 0.5rem;
+  }
+}
+
+/* Large screens optimization */
+@media (min-width: 1200px) {
+  .capsule-card {
+    padding: 2rem 2.5rem;
   }
 }
