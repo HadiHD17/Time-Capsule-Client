@@ -9,7 +9,7 @@ const NavBar = ({ onCreateClick }) => {
   return (
     <div className="NavBar">
       <div className="Heading">
-        <h1>⏰ Time Capsule</h1>
+        <h1>Time Capsule</h1>
       </div>
       <div className="Actions">
         <div className="Createbtn">

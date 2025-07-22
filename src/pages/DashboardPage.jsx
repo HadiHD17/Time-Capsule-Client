@@ -60,7 +60,7 @@ const DashboardPage = () => {
         <NavBar onCreateClick={() => setShowModal(true)} />
         <div className="About">
           <div className="Head">
-            <h1>📮Welcome Back!</h1>
+            <h1>Welcome Back!</h1>
           </div>
           <div className="description">
             <p>

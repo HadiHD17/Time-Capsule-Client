@@ -62,18 +62,6 @@
   position: relative;
 }
 
-.wall-header::before {
-  content: "";
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #87b6f8, #7aa5f5);
-  border-radius: 2px;
-}
-
 .wall-header h1 {
   color: #1e293b;
   font-size: clamp(2rem, 5vw, 2.5rem);

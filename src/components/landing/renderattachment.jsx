@@ -3,35 +3,20 @@ export const renderAttachment = (attachment) => {
 
   let fileUrl = attachment.file_url;
 
-  // Optional: Handle base64 or public URLs
+  // Ensure full URL
   if (!fileUrl.startsWith("http") && !fileUrl.startsWith("data:")) {
     fileUrl = `http://localhost:8000/storage/${fileUrl}`;
   }
 
-  const extension = attachment.file_url.split(".").pop().toLowerCase();
-
-  if (["jpg", "jpeg", "png", "gif", "webp"].includes(extension)) {
+  // Render appropriate preview
+  if (attachment.file_type?.startsWith("image")) {
+    return <img src={fileUrl} alt="Image attachment" className="preview-img" />;
+  } else if (attachment.file_type?.startsWith("audio")) {
     return (
-      <img
-        src={fileUrl}
-        alt="Capsule Attachment"
-        style={{ maxWidth: "100%", maxHeight: "300px", objectFit: "contain" }}
-      />
+      <audio controls>
+        <source src={fileUrl} type={attachment.file_type} />
+        Your browser does not support the audio element.
+      </audio>
     );
   }
-
-  if (["mp3", "wav", "ogg"].includes(extension)) {
-    return <audio controls src={fileUrl} />;
-  }
-
-  if (["mp4", "webm"].includes(extension)) {
-    return <video controls src={fileUrl} style={{ maxWidth: "100%" }} />;
-  }
-
-  // Fallback for other types
-  return (
-    <a href={fileUrl} download>
-      📥 Download Attachment
-    </a>
-  );
 };

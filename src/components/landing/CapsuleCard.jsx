@@ -32,7 +32,6 @@ const CapsuleCard = ({ capsule, onClick }) => {
   return (
     <div className="capsule-card" onClick={onClick}>
       {capsule.is_surprise && !capsule.is_activated ? (
-        // If it's a surprise and not yet activated, show a hidden message
         <div className="capsule-surprise-hidden">
           🎁 <strong>Surprise Capsule</strong>
           <p>
@@ -41,7 +40,6 @@ const CapsuleCard = ({ capsule, onClick }) => {
           </p>
         </div>
       ) : (
-        // Else, show actual capsule content
         <>
           <div className="capsule-top">
             <h4 className="capsule-title">{capsule.title}</h4>

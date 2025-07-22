@@ -142,7 +142,6 @@ const CreateCapsulePage = ({ onClose }) => {
             type={"file"}
             name={"image"}
             accept="image/*"
-            required
             onChange={(e) => setImage(e.target.files[0])}
           />
 

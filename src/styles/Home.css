@@ -327,20 +327,6 @@
   pointer-events: none;
 }
 
-/* Hero Section Enhancement */
-.Home .About::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #87b6f8, #7aa5f5);
-  border-radius: 2px;
-  margin-bottom: 2rem;
-}
-
 .Home .About {
   position: relative;
   padding-top: 3rem;
