@@ -1,7 +1,5 @@
-/* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-/* NavBar - Base Styles */
 .NavBar {
   background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
   color: white;
@@ -35,7 +33,6 @@
   );
 }
 
-/* Heading */
 .NavBar .Heading h1 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 700;
@@ -48,7 +45,6 @@
   background-clip: text;
 }
 
-/* Actions */
 .NavBar .Actions {
   display: flex;
   gap: 1rem;
@@ -60,7 +56,6 @@
   margin-right: 0.25rem;
 }
 
-/* Button Base */
 .NavBar .Registerbtn,
 .NavBar .Publicbtn,
 .NavBar .Loginbtn,
@@ -80,7 +75,6 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Gradient Buttons */
 .NavBar .Registerbtn button,
 .NavBar .Publicbtn button,
 .NavBar .Createbtn button {
@@ -148,7 +142,6 @@
   transform: translateY(0);
 }
 
-/* Secondary Buttons */
 .NavBar .Loginbtn button,
 .NavBar .Logoutbtn button {
   background: rgba(255, 255, 255, 0.95);
@@ -172,31 +165,26 @@
   transform: translateY(0);
 }
 
-/* Scroll Effect */
 .NavBar.scrolled {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(25px);
 }
 
-/* Hover on NavBar */
 .NavBar:hover {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Disabled Buttons */
 .NavBar button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-/* Focus for Accessibility */
 .NavBar button:focus {
   outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 2px;
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .NavBar,
   .NavBar button {
@@ -208,7 +196,6 @@
   }
 }
 
-/* Responsive - Tablet */
 @media (max-width: 768px) {
   .NavBar {
     padding: 0.875rem 1.5rem;
@@ -228,7 +215,6 @@
   }
 }
 
-/* Responsive - Mobile */
 @media (max-width: 600px) {
   .NavBar {
     padding: 0.75rem 1rem;
@@ -249,7 +235,6 @@
   }
 }
 
-/* Extra Small */
 @media (max-width: 480px) {
   .NavBar {
     padding: 0.75rem 0.75rem;
@@ -269,7 +254,6 @@
   }
 }
 
-/* Large Screens */
 @media (min-width: 1200px) {
   .NavBar {
     padding: 1.25rem 3rem;

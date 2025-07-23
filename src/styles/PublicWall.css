@@ -1,4 +1,3 @@
-/* Public Wall Container - Enhanced */
 .Public-Wall {
   min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -6,7 +5,6 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Back Button - Enhanced */
 .back {
   position: absolute;
   top: 2rem;
@@ -53,7 +51,6 @@
   transform: translateX(-2px);
 }
 
-/* Wall Header - Enhanced */
 .wall-header {
   max-width: 1200px;
   margin: 0 auto;
@@ -74,7 +71,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Filters Section - Enhanced */
 .Filters {
   display: flex;
   justify-content: center;
@@ -106,7 +102,6 @@
   );
 }
 
-/* Filter Dropdowns - Enhanced */
 .Country-filter,
 .Mood-filter {
   padding: 1rem 1.25rem;
@@ -144,7 +139,6 @@
   transform: translateY(-1px);
 }
 
-/* Public Capsules Grid - Enhanced */
 .PublicCapsules {
   max-width: 1200px;
   margin: 0 auto;
@@ -175,7 +169,6 @@
   }
 }
 
-/* Empty and Loading States - Enhanced */
 .PublicCapsules:empty::after {
   content: "No capsules found matching your filters 🔍";
   grid-column: 1 / -1;
@@ -223,7 +216,6 @@
   }
 }
 
-/* Tablet Responsiveness */
 @media (max-width: 1024px) {
   .wall-header {
     padding: 3rem 1.5rem 1.5rem;
@@ -254,7 +246,6 @@
   }
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .Public-Wall {
     padding: 0;
@@ -299,7 +290,6 @@
   }
 }
 
-/* Small Mobile */
 @media (max-width: 480px) {
   .back {
     top: 1rem;
@@ -346,7 +336,6 @@
   }
 }
 
-/* Large Screens */
 @media (min-width: 1200px) {
   .back {
     top: 2.5rem;
@@ -369,7 +358,6 @@
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .back a,
   .Country-filter,
@@ -384,7 +372,6 @@
   }
 }
 
-/* Focus Accessibility */
 .Country-filter:focus,
 .Mood-filter:focus {
   outline: 2px solid #87b6f8;

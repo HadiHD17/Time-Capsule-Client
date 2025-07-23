@@ -10,7 +10,6 @@ const CapsuleModal = ({ capsule, onClose }) => {
   const handleExportZip = async () => {
     const zip = new JSZip();
 
-    // Text content for capsule metadata
     const capsuleContent = `
 Title: ${capsule.title}
 Message: ${capsule.message}
@@ -21,7 +20,6 @@ Revealed: ${capsule.is_revealed}
     `;
     zip.file("capsule.txt", capsuleContent.trim());
 
-    // Attachments
     if (capsule.attachments && capsule.attachments.length > 0) {
       const attachmentsFolder = zip.folder("attachments");
 
@@ -41,7 +39,6 @@ Revealed: ${capsule.is_revealed}
       }
     }
 
-    // Download ZIP
     const content = await zip.generateAsync({ type: "blob" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(content);

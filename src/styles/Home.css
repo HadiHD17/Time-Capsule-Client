@@ -122,7 +122,6 @@
   outline-offset: 2px;
 }
 
-/* Cards Grid */
 .Home .FeatureCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -188,7 +187,6 @@
   margin: 0;
 }
 
-/* Responsive Tweaks */
 @media (max-width: 768px) {
   .Home .Head h1 {
     font-size: 2rem;
@@ -264,7 +262,6 @@
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   .Home .FeatureCards > div,
   .Registerbtn button,
@@ -278,7 +275,6 @@
   }
 }
 
-/* Loading State */
 .Home.loading .FeatureCards > div {
   opacity: 0.7;
   pointer-events: none;

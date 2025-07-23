@@ -1,7 +1,6 @@
-/* Modal Overlay - Optimized */
 .modal-overlay {
   position: fixed;
-  inset: 0; /* shorthand for top:0; left:0; right:0; bottom:0; */
+  inset: 0;
   background: rgba(40, 40, 40, 0.8);
   backdrop-filter: blur(4px);
   display: flex;
@@ -21,7 +20,6 @@
   }
 }
 
-/* Modal Content */
 .modal-content {
   background: linear-gradient(135deg, #9db8f1 0%, #8aa8ed 100%);
   border-radius: 1.25rem;
@@ -45,7 +43,6 @@
   }
 }
 
-/* Title */
 .modal-content h2 {
   font-size: clamp(1.5rem, 4vw, 1.75rem);
   font-weight: 700;
@@ -54,7 +51,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Emoji Icon */
 .modal-content img.emoji-icon {
   width: clamp(40px, 8vw, 60px);
   height: auto;
@@ -63,7 +59,6 @@
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 }
 
-/* Message */
 .modal-content p.message {
   font-size: clamp(1rem, 2.5vw, 1.1rem);
   margin-bottom: 2rem;
@@ -74,7 +69,6 @@
   hyphens: auto;
 }
 
-/* Attachment Preview */
 .attachment-preview {
   margin: 1.5rem 0;
   max-width: 100%;
@@ -89,7 +83,6 @@
   margin-right: auto;
 }
 
-/* Info Grid */
 .modal-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -113,7 +106,6 @@
   border-bottom: none;
 }
 
-/* Buttons */
 .modal-buttons {
   display: flex;
   gap: 1rem;
@@ -147,7 +139,6 @@
   transform: translateY(0);
 }
 
-/* Close Button */
 .close-btn {
   position: absolute;
   top: 1rem;
@@ -172,7 +163,6 @@
   transform: scale(1.1);
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 0.5rem;
@@ -215,7 +205,6 @@
   }
 }
 
-/* Extra Small Screens */
 @media (max-width: 480px) {
   .modal-content {
     padding: 1.5rem;
@@ -234,7 +223,6 @@
   }
 }
 
-/* Large Screens */
 @media (min-width: 1200px) {
   .modal-content {
     padding: 3rem;
@@ -245,7 +233,6 @@
   }
 }
 
-/* Accessibility Improvements */
 @media (prefers-reduced-motion: reduce) {
   .modal-overlay,
   .modal-content,
@@ -256,7 +243,6 @@
   }
 }
 
-/* Focus States for Accessibility */
 .modal-buttons button:focus,
 .close-btn:focus {
   outline: 2px solid rgba(255, 255, 255, 0.8);

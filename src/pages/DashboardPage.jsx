@@ -30,7 +30,6 @@ const DashboardPage = () => {
       );
 
       setSelectedCapsule(res.data.payload);
-      // set full capsule object including attachments
     } catch (error) {
       console.error("Failed to load capsule details", error);
     }

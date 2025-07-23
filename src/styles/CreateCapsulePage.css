@@ -26,7 +26,6 @@
   );
 }
 
-/* Form Layout */
 form {
   display: flex;
   flex-direction: column;
@@ -40,7 +39,6 @@ form {
   align-items: start;
 }
 
-/* Unified Input Styling */
 :is(
     .Title,
     .RevealDate,
@@ -82,14 +80,12 @@ form {
   opacity: 0.8;
 }
 
-/* Message */
 .Message {
   min-height: 100px;
   resize: vertical;
   line-height: 1.5;
 }
 
-/* Date */
 .RevealDate {
   cursor: pointer;
   position: relative;
@@ -100,7 +96,6 @@ form {
   filter: invert(0.5);
 }
 
-/* Mood */
 .form-mood {
   display: flex;
   flex-direction: column;
@@ -124,12 +119,10 @@ form {
   padding-right: 2.5rem;
 }
 
-/* Tag */
 .form-tag {
   width: 100%;
 }
 
-/* Attachment */
 .form-attachement {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -168,7 +161,6 @@ form {
   background: #ff85c0;
 }
 
-/* Privacy */
 .form-privacy {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -206,7 +198,6 @@ form {
   transform: scale(1.1);
 }
 
-/* Mode */
 .form-mode {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
@@ -235,7 +226,6 @@ form {
   transform: scale(1.1);
 }
 
-/* Buttons */
 .form-buttons {
   display: flex;
   gap: 1rem;
@@ -288,7 +278,6 @@ form {
   transform: none;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .CreateForm {
     margin: 1rem auto;
@@ -359,7 +348,6 @@ form {
   }
 }
 
-/* Accessibility */
 :is(.cancelbtn, .submitbtn):focus {
   outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 2px;
