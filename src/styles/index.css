@@ -1,29 +1,65 @@
-/* Global Reset and Base Styles */
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body - Enhanced */
+/* Body Styling */
 body {
-  margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-  color: #1e293b;
+  font-family: "Inter", sans-serif;
   background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Code Elements - Improved */
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+h4 {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+h5 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+h6 {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #475569;
+}
+
+/* Code Blocks */
 code {
-  font-family: "JetBrains Mono", "Fira Code", source-code-pro, Menlo, Monaco,
-    Consolas, "Courier New", monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   background: rgba(0, 0, 0, 0.05);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
@@ -31,7 +67,6 @@ code {
   color: #e11d48;
 }
 
-/* Pre-formatted Code Blocks */
 pre {
   background: #1e293b;
   color: #e2e8f0;
@@ -48,17 +83,6 @@ pre code {
   padding: 0;
   color: inherit;
   border-radius: 0;
-}
-
-/* Selection Styling */
-::selection {
-  background: rgba(135, 182, 248, 0.3);
-  color: #1e293b;
-}
-
-::-moz-selection {
-  background: rgba(135, 182, 248, 0.3);
-  color: #1e293b;
 }
 
 /* Scrollbar Styling */
@@ -82,18 +106,14 @@ pre code {
   background: #94a3b8;
 }
 
-/* Focus Outline for Accessibility */
-*:focus {
-  outline: 2px solid #87b6f8;
-  outline-offset: 2px;
+/* Selection */
+::selection,
+::-moz-selection {
+  background: rgba(135, 182, 248, 0.3);
+  color: #1e293b;
 }
 
-/* Button Focus Reset */
-button:focus {
-  outline: none;
-}
-
-/* Link Styling */
+/* Links */
 a {
   color: #87b6f8;
   text-decoration: none;
@@ -111,28 +131,24 @@ a:focus {
   border-radius: 2px;
 }
 
-/* Input and Form Element Defaults */
+/* Form & UI Elements */
 input,
 textarea,
 select,
 button {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font: inherit;
 }
 
-/* Image Responsiveness */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+button:focus {
+  outline: none;
 }
 
-/* Table Responsiveness */
+/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0;
+  font-size: 1rem;
 }
 
 th,
@@ -148,7 +164,29 @@ th {
   color: #475569;
 }
 
-/* Utility Classes */
+/* Utility */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -161,27 +199,7 @@ th {
   border: 0;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-/* Loading Animation */
+/* Animation: Spinner & Fade */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -192,7 +210,6 @@ th {
   animation: spin 1s linear infinite;
 }
 
-/* Fade Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -208,63 +225,26 @@ th {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Responsive Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #1e293b;
+/* Accessibility Focus */
+*:focus {
+  outline: 2px solid #87b6f8;
+  outline-offset: 2px;
 }
 
-h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-}
-
-h4 {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-}
-
-h5 {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-}
-
-h6 {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-}
-
-p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  color: #475569;
-}
-
-/* Mobile Optimizations */
+/* Responsive Typography & Layout */
 @media (max-width: 768px) {
   body {
     font-size: 16px;
     line-height: 1.5;
   }
 
-  code {
+  code,
+  pre {
     font-size: 0.85em;
   }
 
   pre {
     padding: 0.75rem;
-    font-size: 0.85rem;
   }
 
   table {
@@ -277,7 +257,7 @@ p {
   }
 }
 
-/* Reduced Motion */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -290,7 +270,7 @@ p {
   }
 }
 
-/* High Contrast Mode */
+/* High Contrast */
 @media (prefers-contrast: high) {
   body {
     background: #ffffff;
@@ -306,16 +286,11 @@ p {
   }
 }
 
-/* Dark Mode Support */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   body {
     background: #0f172a;
     color: #e2e8f0;
-  }
-
-  code {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fbbf24;
   }
 
   h1,
@@ -329,6 +304,11 @@ p {
 
   p {
     color: #cbd5e1;
+  }
+
+  code {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fbbf24;
   }
 
   ::-webkit-scrollbar-track {

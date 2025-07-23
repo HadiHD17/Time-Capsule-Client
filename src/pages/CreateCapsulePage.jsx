@@ -124,6 +124,20 @@ const CreateCapsulePage = ({ onClose }) => {
             <option value="relaxed">😌 Relaxed</option>
             <option value="bored">😐 Bored</option>
             <option value="anxious">😰 Anxious</option>
+            <option value="hopeful">🌈 Hopeful</option>
+            <option value="grateful">🙏 Grateful</option>
+            <option value="nostalgic">🕰 Nostalgic</option>
+            <option value="in love">❤ In Love</option>
+            <option value="curious">🤔 Curious</option>
+            <option value="motivated">💪 Motivated</option>
+            <option value="calm">🧘 Calm</option>
+            <option value="dreamy">🌙 Dreamy</option>
+            <option value="funny">😂 Funny</option>
+            <option value="reflective">📖 Reflective</option>
+            <option value="adventurous">🧭 Adventurous</option>
+            <option value="inspired">✨ Inspired</option>
+            <option value="surprised">😲 Surprised</option>
+            <option value="lonely">😔 Lonely</option>
           </select>
         </div>
         <div className="form-tag">

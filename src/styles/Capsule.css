@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Optimized Capsule Card */
+/* Capsule Card */
 .capsule-card {
   background: linear-gradient(135deg, #87b6f8 0%, #6fa8f5 100%);
   border-radius: 1rem;
@@ -45,7 +45,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Hidden state for surprise capsules */
+/* Surprise Capsule */
 .capsule-surprise-hidden {
   background: #f8fafc;
   color: #64748b;
@@ -56,13 +56,12 @@
   border-radius: 1rem;
   transition: all 0.3s ease;
 }
-
 .capsule-surprise-hidden:hover {
   border-color: #94a3b8;
   background: #f1f5f9;
 }
 
-/* Top Section - Responsive Flex */
+/* Top Section */
 .capsule-top {
   display: flex;
   justify-content: space-between;
@@ -80,10 +79,10 @@
   font-weight: 600;
   color: #fff;
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* prevents overflow */
 }
 
-/* Privacy Pill - Improved */
+/* Privacy Pill */
 .capsule-privacy {
   background: rgba(249, 168, 212, 0.9);
   backdrop-filter: blur(10px);
@@ -97,7 +96,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Message - Better Typography */
+/* Message */
 .capsule-message {
   font-size: clamp(0.9rem, 2.5vw, 1rem);
   font-weight: 500;
@@ -108,7 +107,7 @@
   hyphens: auto;
 }
 
-/* Bottom Section - Improved Layout */
+/* Bottom Section */
 .capsule-bottom {
   display: flex;
   justify-content: space-between;
@@ -135,67 +134,60 @@
   flex-shrink: 0;
 }
 
-/* Enhanced Mobile Responsiveness */
+/* Responsive tweaks */
+
+/* Medium screens */
 @media (max-width: 768px) {
   .capsule-card {
     min-height: 140px;
   }
-
   .capsule-top {
     align-items: center;
   }
-
   .capsule-title {
     font-size: 1.1rem;
   }
-
   .capsule-privacy {
     font-size: 0.7rem;
     padding: 0.3rem 0.8rem;
   }
-
   .capsule-message {
     font-size: 0.9rem;
     line-height: 1.5;
   }
-
   .capsule-bottom {
     font-size: 0.8rem;
     flex-direction: column;
     align-items: stretch;
     gap: 0.75rem;
   }
-
   .capsule-countdown {
     align-self: flex-end;
     font-size: 0.85rem;
   }
 }
 
-/* Extra small screens */
+/* Small screens */
 @media (max-width: 480px) {
   .capsule-card {
     border-radius: 0.75rem;
     min-height: 120px;
   }
-
   .capsule-top {
     flex-direction: column;
     align-items: stretch;
     gap: 0.75rem;
   }
-
   .capsule-privacy {
     align-self: flex-start;
     width: fit-content;
   }
-
   .capsule-bottom {
     gap: 0.5rem;
   }
 }
 
-/* Large screens optimization */
+/* Large screens */
 @media (min-width: 1200px) {
   .capsule-card {
     padding: 2rem 2.5rem;

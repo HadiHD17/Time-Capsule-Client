@@ -1,7 +1,7 @@
 /* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-/* NavBar - Enhanced */
+/* NavBar - Base Styles */
 .NavBar {
   background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
   color: white;
@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   font-family: "Inter", sans-serif;
   position: sticky;
   top: 0;
@@ -18,6 +17,7 @@
   flex-wrap: nowrap;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  padding: 1rem 2rem;
 }
 
 .NavBar::before {
@@ -35,7 +35,7 @@
   );
 }
 
-/* Heading - Enhanced */
+/* Heading */
 .NavBar .Heading h1 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 700;
@@ -48,7 +48,7 @@
   background-clip: text;
 }
 
-/* Actions Container - Enhanced */
+/* Actions */
 .NavBar .Actions {
   display: flex;
   gap: 1rem;
@@ -56,7 +56,11 @@
   flex-wrap: nowrap;
 }
 
-/* Button Base Styles - Enhanced */
+.NavBar .Actions > *:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+/* Button Base */
 .NavBar .Registerbtn,
 .NavBar .Publicbtn,
 .NavBar .Loginbtn,
@@ -65,82 +69,32 @@
   display: inline-block;
 }
 
-/* Primary Buttons (Register, Public, Create) - Enhanced */
+.NavBar button {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gradient Buttons */
 .NavBar .Registerbtn button,
 .NavBar .Publicbtn button,
 .NavBar .Createbtn button {
   background: linear-gradient(135deg, #ff99c8 0%, #ff85c0 100%);
   color: white;
   border: none;
+  box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
   padding: 0.75rem 1.5rem;
   border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .NavBar .Registerbtn button::before,
 .NavBar .Publicbtn button::before,
-.NavBar .Createbtn button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.NavBar .Registerbtn button:hover::before,
-.NavBar .Publicbtn button:hover::before,
-.NavBar .Createbtn button:hover::before {
-  left: 100%;
-}
-
-.NavBar .Registerbtn button:hover,
-.NavBar .Publicbtn button:hover,
-.NavBar .Createbtn button:hover {
-  box-shadow: 0 8px 32px rgba(255, 153, 200, 0.4);
-  transform: translateY(-2px);
-}
-
-.NavBar .Registerbtn button:active,
-.NavBar .Publicbtn button:active,
-.NavBar .Createbtn button:active {
-  transform: translateY(0);
-}
-
-/* Secondary Buttons (Login, Logout) - Enhanced */
-.NavBar .Loginbtn button,
-.NavBar .Logoutbtn button {
-  background: rgba(255, 255, 255, 0.95);
-  color: #ff99c8;
-  border: 2px solid rgba(255, 153, 200, 0.8);
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
+.NavBar .Createbtn button::before,
 .NavBar .Loginbtn button::before,
 .NavBar .Logoutbtn button::before {
   content: "";
@@ -149,18 +103,60 @@
   left: -100%;
   width: 100%;
   height: 100%;
+  transition: left 0.5s;
+}
+
+.NavBar .Registerbtn button::before,
+.NavBar .Publicbtn button::before,
+.NavBar .Createbtn button::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+}
+
+.NavBar .Loginbtn button::before,
+.NavBar .Logoutbtn button::before {
   background: linear-gradient(
     90deg,
     transparent,
     rgba(255, 153, 200, 0.1),
     transparent
   );
-  transition: left 0.5s;
 }
 
+.NavBar .Registerbtn button:hover::before,
+.NavBar .Publicbtn button:hover::before,
+.NavBar .Createbtn button:hover::before,
 .NavBar .Loginbtn button:hover::before,
 .NavBar .Logoutbtn button:hover::before {
   left: 100%;
+}
+
+.NavBar .Registerbtn button:hover,
+.NavBar .Publicbtn button:hover,
+.NavBar .Createbtn button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 153, 200, 0.4);
+}
+
+.NavBar .Registerbtn button:active,
+.NavBar .Publicbtn button:active,
+.NavBar .Createbtn button:active {
+  transform: translateY(0);
+}
+
+/* Secondary Buttons */
+.NavBar .Loginbtn button,
+.NavBar .Logoutbtn button {
+  background: rgba(255, 255, 255, 0.95);
+  color: #ff99c8;
+  border: 2px solid rgba(255, 153, 200, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
 }
 
 .NavBar .Loginbtn button:hover,
@@ -176,7 +172,43 @@
   transform: translateY(0);
 }
 
-/* Mobile Responsiveness - Enhanced */
+/* Scroll Effect */
+.NavBar.scrolled {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(25px);
+}
+
+/* Hover on NavBar */
+.NavBar:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled Buttons */
+.NavBar button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Focus for Accessibility */
+.NavBar button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .NavBar,
+  .NavBar button {
+    transition: none !important;
+  }
+
+  .NavBar button::before {
+    display: none;
+  }
+}
+
+/* Responsive - Tablet */
 @media (max-width: 768px) {
   .NavBar {
     padding: 0.875rem 1.5rem;
@@ -190,17 +222,13 @@
     gap: 0.75rem;
   }
 
-  .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button,
-  .NavBar .Publicbtn button,
-  .NavBar .Logoutbtn button,
-  .NavBar .Createbtn button {
+  .NavBar button {
     padding: 0.625rem 1.25rem;
     font-size: 0.9rem;
   }
 }
 
-/* Small Mobile Screens */
+/* Responsive - Mobile */
 @media (max-width: 600px) {
   .NavBar {
     padding: 0.75rem 1rem;
@@ -214,18 +242,14 @@
     gap: 0.5rem;
   }
 
-  .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button,
-  .NavBar .Publicbtn button,
-  .NavBar .Logoutbtn button,
-  .NavBar .Createbtn button {
+  .NavBar button {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     border-radius: 8px;
   }
 }
 
-/* Extra Small Screens */
+/* Extra Small */
 @media (max-width: 480px) {
   .NavBar {
     padding: 0.75rem 0.75rem;
@@ -239,11 +263,7 @@
     gap: 0.4rem;
   }
 
-  .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button,
-  .NavBar .Publicbtn button,
-  .NavBar .Logoutbtn button,
-  .NavBar .Createbtn button {
+  .NavBar button {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
@@ -259,65 +279,8 @@
     gap: 1.5rem;
   }
 
-  .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button,
-  .NavBar .Publicbtn button,
-  .NavBar .Logoutbtn button,
-  .NavBar .Createbtn button {
+  .NavBar button {
     padding: 0.875rem 1.75rem;
     font-size: 1rem;
   }
-}
-
-/* Focus States for Accessibility */
-.NavBar .Loginbtn button:focus,
-.NavBar .Registerbtn button:focus,
-.NavBar .Publicbtn button:focus,
-.NavBar .Logoutbtn button:focus,
-.NavBar .Createbtn button:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 2px;
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .NavBar,
-  .NavBar .Loginbtn button,
-  .NavBar .Registerbtn button,
-  .NavBar .Publicbtn button,
-  .NavBar .Logoutbtn button,
-  .NavBar .Createbtn button {
-    transition: none;
-  }
-
-  .NavBar .Loginbtn button::before,
-  .NavBar .Registerbtn button::before,
-  .NavBar .Publicbtn button::before,
-  .NavBar .Logoutbtn button::before,
-  .NavBar .Createbtn button::before {
-    display: none;
-  }
-}
-
-/* Scroll Effect */
-.NavBar.scrolled {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(25px);
-}
-
-/* Loading States */
-.NavBar button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Button Group Spacing */
-.NavBar .Actions > *:not(:last-child) {
-  margin-right: 0.25rem;
-}
-
-/* Hover Effects for Container */
-.NavBar:hover {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }

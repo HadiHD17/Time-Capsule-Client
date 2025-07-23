@@ -10,6 +10,7 @@ const PublicWallPage = () => {
   const [selectedCapsule, setSelectedCapsule] = useState(null);
   const [country, setCountry] = useState("");
   const [mood, setMood] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [capsules, setcapsules] = useState([]);
 
   const loadPublicCapsules = async () => {
@@ -51,13 +52,11 @@ const PublicWallPage = () => {
     loadPublicCapsules();
   }, []);
 
-  console.log("Capsules:", capsules);
-
   const capsuleList = capsules?.payload || [];
 
   return (
     <div className="Public-Wall">
-      <NavBar />
+      <NavBar onCreateClick={() => setShowModal(true)} />
       <div className="wall-header">
         <div className="back">
           <h4>
@@ -95,6 +94,20 @@ const PublicWallPage = () => {
           <option value="relaxed">😌 Relaxed</option>
           <option value="bored">😐 Bored</option>
           <option value="anxious">😰 Anxious</option>
+          <option value="hopeful">🌈 Hopeful</option>
+          <option value="grateful">🙏 Grateful</option>
+          <option value="nostalgic">🕰 Nostalgic</option>
+          <option value="in love">❤ In Love</option>
+          <option value="curios">🤔 Curious</option>
+          <option value="motivated">💪 Motivated</option>
+          <option value="calm">🧘 Calm</option>
+          <option value="dreamy">🌙 Dreamy</option>
+          <option value="funny">😂 Funny</option>
+          <option value="reflective">📖 Reflective</option>
+          <option value="adventurous">🧭 Adventurous</option>
+          <option value="inspired">✨ Inspired</option>
+          <option value="surprised">😲 Surprised</option>
+          <option value="lonely">😔 Lonely</option>
         </select>
       </div>
       <div className="PublicCapsules">

@@ -1,14 +1,13 @@
 /* Font Import */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-/* Dashboard Container - Enhanced */
 .Dashboard {
   font-family: "Inter", sans-serif;
-
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* About Section - Improved */
+/* About Section */
 .Dashboard .About {
   text-align: center;
   padding: clamp(2rem, 6vw, 4rem) 0;
@@ -19,13 +18,12 @@
   font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #1e293b;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  background: linear-gradient(135deg, #1e293b, #475569);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .Dashboard .description p {
@@ -35,48 +33,44 @@
   margin-bottom: 2.5rem;
   line-height: 1.6;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
-/* Buttons Section - Enhanced */
+/* Buttons Section */
 .Dashboard .Buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
   margin-bottom: 4rem;
-  flex-wrap: wrap;
 }
 
-/* Create Button - Improved */
 .Createbtn {
   display: inline-block;
 }
 
 .Createbtn button {
-  background: linear-gradient(135deg, #ff99c8 0%, #ff85c0 100%);
-  color: white;
+  background: linear-gradient(135deg, #ff99c8, #ff85c0);
+  color: #fff;
   border: none;
   padding: 1rem 2rem;
   border-radius: 12px;
   font-weight: 600;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
   font-size: 1.1rem;
+  cursor: pointer;
   box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
+  transition: all 0.3s ease;
+  min-width: 160px;
   position: relative;
   overflow: hidden;
-  min-width: 160px;
 }
 
 .Createbtn button::before {
   content: "";
   position: absolute;
-  top: 0;
+  inset: 0;
   left: -100%;
-  width: 100%;
-  height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
@@ -91,15 +85,20 @@
 }
 
 .Createbtn button:hover {
-  box-shadow: 0 8px 32px rgba(255, 153, 200, 0.4);
   transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255, 153, 200, 0.4);
 }
 
 .Createbtn button:active {
   transform: translateY(-1px);
 }
 
-/* Feature Cards Layout - Enhanced */
+.Createbtn button:focus {
+  outline: 2px solid rgba(255, 153, 200, 0.8);
+  outline-offset: 2px;
+}
+
+/* Cards Section */
 .Dashboard .CapsuleCards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -109,16 +108,15 @@
 }
 
 .Dashboard .CapsuleCards > div {
-  background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
+  background: linear-gradient(135deg, #87b6f8, #7aa5f5);
   border-radius: 1.25rem;
-
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: #fff;
-  position: relative;
-  overflow: hidden;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .Dashboard .CapsuleCards > div::before {
@@ -141,12 +139,10 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Content Styling */
 .Dashboard .CapsuleCards > div h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
 .Dashboard .CapsuleCards > div p {
@@ -162,7 +158,9 @@
   display: block;
 }
 
-/* Mobile Responsiveness */
+/* Responsiveness */
+
+/* Tablet */
 @media (max-width: 768px) {
   .Dashboard .About {
     padding: 2rem 0;
@@ -195,7 +193,7 @@
   }
 }
 
-/* Extra Small Screens */
+/* Mobile */
 @media (max-width: 480px) {
   .Dashboard .Head h1 {
     font-size: 1.75rem;
@@ -221,7 +219,7 @@
   }
 }
 
-/* Large Screens */
+/* Desktop XL */
 @media (min-width: 1200px) {
   .Dashboard .CapsuleCards {
     grid-template-columns: repeat(3, 1fr);
@@ -229,13 +227,7 @@
   }
 }
 
-/* Focus States for Accessibility */
-.Createbtn button:focus {
-  outline: 2px solid rgba(255, 153, 200, 0.8);
-  outline-offset: 2px;
-}
-
-/* Reduced Motion */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   .Dashboard .CapsuleCards > div,
   .Createbtn button {
@@ -247,13 +239,12 @@
   }
 }
 
-/* Loading States */
+/* Loading & Empty States */
 .Dashboard.loading .CapsuleCards > div {
   opacity: 0.7;
   pointer-events: none;
 }
 
-/* Empty State */
 .Dashboard .CapsuleCards:empty::after {
   content: "No capsules found. Create your first one!";
   grid-column: 1 / -1;
