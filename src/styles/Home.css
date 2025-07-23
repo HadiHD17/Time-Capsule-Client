@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+.Home {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.Home .About {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 3rem;
+  position: relative;
+}
+
+.Home .Head h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: #1e293b;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.Home .description p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #475569;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Home .Buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.Registerbtn,
+.Loginbtn {
+  display: inline-block;
+}
+
+.Registerbtn button,
+.Loginbtn button {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  min-width: 160px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Registerbtn button {
+  background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(135, 182, 248, 0.3);
+}
+
+.Registerbtn button:hover {
+  box-shadow: 0 8px 32px rgba(135, 182, 248, 0.4);
+  transform: translateY(-3px);
+}
+
+.Loginbtn button {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  border: 2px solid #87b6f8;
+  backdrop-filter: blur(10px);
+}
+
+.Loginbtn button:hover {
+  background: rgba(135, 182, 248, 0.1);
+  border-color: #7aa5f5;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(135, 182, 248, 0.2);
+}
+
+.Registerbtn button::before,
+.Loginbtn button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.Registerbtn button:hover::before,
+.Loginbtn button:hover::before {
+  left: 100%;
+}
+
+.Registerbtn button:active,
+.Loginbtn button:active {
+  transform: translateY(-1px);
+}
+
+.Registerbtn button:focus,
+.Loginbtn button:focus {
+  outline: 2px solid rgba(135, 182, 248, 0.8);
+  outline-offset: 2px;
+}
+
+.Home .FeatureCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+}
+
+.Home .FeatureCards > div {
+  background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.Home .FeatureCards > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+.Home .FeatureCards > div:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.Home .FeatureCards > div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.Home .FeatureCards > div .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.Home .MainFeature p,
+.Home .SecondaryFeature p,
+.Home .TertiaryFeature p {
+  font-weight: 500;
+  font-size: 1.1rem;
+  white-space: pre-line;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .Home .Head h1 {
+    font-size: 2rem;
+  }
+
+  .Home .description p {
+    font-size: 1.1rem;
+  }
+
+  .Home .Buttons {
+    gap: 1rem;
+  }
+
+  .Registerbtn button,
+  .Loginbtn button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+
+  .Home .FeatureCards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .Home .FeatureCards > div {
+    padding: 2rem 1.5rem;
+  }
+
+  .Home .MainFeature p,
+  .Home .SecondaryFeature p,
+  .Home .TertiaryFeature p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Home .Head h1 {
+    font-size: 1.75rem;
+  }
+
+  .Home .description p {
+    font-size: 1rem;
+  }
+
+  .Registerbtn button,
+  .Loginbtn button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .Home .FeatureCards > div {
+    border-radius: 1rem;
+  }
+
+  .Home .Buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Home .MainFeature p,
+  .Home .SecondaryFeature p,
+  .Home .TertiaryFeature p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Home .FeatureCards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Home .FeatureCards > div,
+  .Registerbtn button,
+  .Loginbtn button {
+    transition: none;
+  }
+
+  .Registerbtn button::before,
+  .Loginbtn button::before {
+    display: none;
+  }
+}
+
+.Home.loading .FeatureCards > div {
+  opacity: 0.7;
+  pointer-events: none;
+}

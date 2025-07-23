@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+.Dashboard {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+.Dashboard .About {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem) 0;
+  margin-bottom: 2rem;
+}
+
+.Dashboard .Head h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #1e293b, #475569);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.Dashboard .description p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #475569;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.Dashboard .Buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.Createbtn {
+  display: inline-block;
+}
+
+.Createbtn button {
+  background: linear-gradient(135deg, #ff99c8, #ff85c0);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
+  transition: all 0.3s ease;
+  min-width: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Createbtn button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.Createbtn button:hover::before {
+  left: 100%;
+}
+
+.Createbtn button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255, 153, 200, 0.4);
+}
+
+.Createbtn button:active {
+  transform: translateY(-1px);
+}
+
+.Createbtn button:focus {
+  outline: 2px solid rgba(255, 153, 200, 0.8);
+  outline-offset: 2px;
+}
+
+.Dashboard .CapsuleCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+}
+
+.Dashboard .CapsuleCards > div {
+  background: linear-gradient(135deg, #87b6f8, #7aa5f5);
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.Dashboard .CapsuleCards > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+.Dashboard .CapsuleCards > div:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.Dashboard .CapsuleCards > div h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.Dashboard .CapsuleCards > div p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.Dashboard .CapsuleCards > div .card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .Dashboard .About {
+    padding: 2rem 0;
+  }
+
+  .Dashboard .Head h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .Dashboard .description p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .Dashboard .Buttons {
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .Createbtn button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+
+  .Dashboard .CapsuleCards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Dashboard .Head h1 {
+    font-size: 1.75rem;
+  }
+
+  .Dashboard .description p {
+    font-size: 1rem;
+  }
+
+  .Createbtn button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .Dashboard .CapsuleCards > div {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .Dashboard .Buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Dashboard .CapsuleCards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Dashboard .CapsuleCards > div,
+  .Createbtn button {
+    transition: none;
+  }
+
+  .Createbtn button::before {
+    display: none;
+  }
+}
+
+.Dashboard.loading .CapsuleCards > div {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.Dashboard .CapsuleCards:empty::after {
+  content: "No capsules found. Create your first one!";
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #64748b;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  border: 2px dashed #cbd5e1;
+}

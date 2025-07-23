@@ -1,0 +1,370 @@
+.CreateForm {
+  background: linear-gradient(135deg, #87b6f8 0%, #7aa5f5 100%);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: min(420px, 95vw);
+  margin: 2rem auto;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.CreateForm::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+:is(
+    .Title,
+    .RevealDate,
+    .Message,
+    .Tag,
+    .form-mood select,
+    .form-attachement input[type="file"]
+  ) {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  backdrop-filter: blur(10px);
+}
+
+:is(
+    .Title,
+    .RevealDate,
+    .Message,
+    .Tag,
+    .form-mood select,
+    .form-attachement input[type="file"]
+  ):focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+
+.Message {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.RevealDate {
+  cursor: pointer;
+  position: relative;
+}
+
+.RevealDate::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
+.form-mood {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-mood label.Mood {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.form-mood select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-tag {
+  width: 100%;
+}
+
+.form-attachement {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-attachement label.Attachement {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.form-attachement input[type="file"] {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+.form-attachement input[type="file"]::-webkit-file-upload-button {
+  background: #ff99c8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.form-attachement input[type="file"]::-webkit-file-upload-button:hover {
+  background: #ff85c0;
+}
+
+.form-privacy {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-privacy label.Privacy {
+  font-weight: 600;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.form-privacy label:not(.Privacy) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.form-privacy label:not(.Privacy):hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-privacy input[type="radio"] {
+  accent-color: #ff99c8;
+  transform: scale(1.1);
+}
+
+.form-mode {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.form-mode label {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.form-mode label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-mode input[type="checkbox"] {
+  accent-color: #ff99c8;
+  transform: scale(1.1);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.cancelbtn,
+.submitbtn {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cancelbtn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  backdrop-filter: blur(10px);
+}
+
+.cancelbtn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.submitbtn {
+  background: linear-gradient(135deg, #ff99c8 0%, #ff85c0 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(255, 153, 200, 0.3);
+}
+
+.submitbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255, 153, 200, 0.4);
+}
+
+:is(.submitbtn, .cancelbtn):active {
+  transform: translateY(0);
+}
+
+.submitbtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .CreateForm {
+    margin: 1rem auto;
+    border-radius: 1.25rem;
+  }
+
+  .form-top {
+    grid-template-columns: 1fr;
+  }
+
+  :is(
+      .Title,
+      .RevealDate,
+      .Message,
+      .Tag,
+      .form-mood select,
+      .form-attachement input[type="file"]
+    ) {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .Message {
+    min-height: 80px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cancelbtn,
+  .submitbtn {
+    padding: 0.875rem;
+  }
+
+  .form-attachement {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .CreateForm {
+    padding: 1.25rem;
+  }
+
+  form {
+    gap: 1rem;
+  }
+
+  .form-privacy,
+  .form-mode,
+  .form-attachement {
+    padding: 0.75rem;
+  }
+
+  .form-privacy label:not(.Privacy),
+  .form-mode label {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .CreateForm {
+    max-width: 480px;
+    padding: 2.5rem;
+  }
+}
+
+:is(.cancelbtn, .submitbtn):focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+      .CreateForm,
+      .Title,
+      .RevealDate,
+      .Message,
+      .Tag,
+      .form-mood select,
+      .form-attachement input[type="file"],
+      .cancelbtn,
+      .submitbtn
+    ) {
+    transition: none;
+  }
+}
